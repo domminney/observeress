@@ -1,0 +1,7 @@
+npm install cors
+npm install nodemon
+npm install express
+npm install express-formidable
+npm install fs
+npm install obs-websocket-js
+
