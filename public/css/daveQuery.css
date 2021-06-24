@@ -1,0 +1,232 @@
+body {
+  --dqFormElementBgColor: #111;
+  --dqFormElementFgColor: #eee;
+  --dqFormElementBorderColor: #555;
+  --dqFormToggleOnColor: #0c0;
+  --dqFormToggleOffColor: #777;
+  --dqFormLabelTextColor: #99ddff;
+  --dqFormListElementBgColor: #111;
+  --dqFormListElementBorderColor: #444;
+  --dqButtonColor:#046;
+  --dqFormElementPadding: 0.5rem;
+  --dqFormElementSpacing:1rem;
+  --dqFormElementBorderRadius:.5rem;
+}
+
+.dq--formitem *{
+    box-sizing: content-box;
+}
+
+.dq--formitem {
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: var(--dqFormElementPadding);
+  color: var(--dqFormElementFgColor);
+}
+
+/*tick & toggle*/
+
+.dq--formitem label {
+  user-select: none;
+  color: var(--dqFormLabelTextColor);
+  cursor: pointer;
+}
+
+.dq--toggle--container,
+.dq--tick--container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--dqFormListElementBorderColor);
+}
+
+.dq--toggle--container .dq--toggle--switch {
+  background-color: var(--dqFormElementBgColor);
+  border: 1px solid var(--dqFormElementBorderColor);
+  border-radius: 1.5rem;
+  width: 4.5rem;
+  height: 2.8rem;
+  display: block;
+  box-shadow: 0 0 1px 0px var(--dqFormElementBorderColor) inset,
+    0 0 1px 0px var(--dqFormElementBorderColor);
+}
+
+.dq--toggle--container .dq--toggle--switch::after {
+  background-color: var(--dqFormToggleOffColor);
+  content: "";
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  border-radius: 50%;
+  margin: 0.2rem;
+  transition: all 150ms ease-in-out;
+}
+
+.dq--toggle--container.dq--checked .dq--toggle--switch::after {
+  margin: 0.2rem 0.2rem 0.2rem 1.9rem;
+  background-color: var(--dqFormToggleOnColor);
+}
+
+.dq--tick--container .dq--tick--switch {
+  background-color: var(--dqFormElementBgColor);
+  border: 1px solid var(--dqFormElementBorderColor);
+  border-radius: 1.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 1px 0px var(--dqFormElementBorderColor) inset,
+    0 0 1px 0px var(--dqFormElementBorderColor);
+}
+
+.dq--tick--container .dq--tick--switch::after {
+  color: var(--dqFormToggleOnColor);
+  content: "✓";
+  font-size: 2rem;
+  transition: all 150ms ease-in-out;
+  opacity: 0;
+}
+
+.dq--tick--container.dq--checked .dq--tick--switch::after {
+  opacity: 1;
+}
+
+/*list items*/
+
+.dq--list--item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border-bottom: 1px solid var(--dqFormElementBorderColor);
+  user-select: none;
+}
+
+.dq--list--item--image img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: 1px solid var(--dqFormElementBorderColor);
+  background-color: #fff;
+  object-fit: cover;
+  box-shadow: 0 0 2px 0px var(--dqFormElementBorderColor) inset,
+    0 0 2px 0px var(--dqFormElementBorderColor);
+  box-sizing: border-box;
+}
+
+.dq--list--item--image p {
+  margin: 0.2rem 1rem;
+  padding: 0;
+  color: var(--dqFormElementFgColor);
+  font-size: 0.75rem;
+}
+.dq--list--item--image p:first-of-type {
+  color: var(--dqFormLabelTextColor);
+  font-size: 1rem;
+}
+
+/* input textarea select */
+
+.dq--formitem--input,.dq--formitem--select,.dq--formitem--textarea {
+    border: 1px solid var(--dqFormElementBorderColor);
+    background-color:var(--dqFormElementBgColor);
+    box-shadow: 0 0 1px 0px var(--dqFormElementBorderColor) inset,
+      0 0 1px 0px var(--dqFormElementBorderColor);
+    box-sizing: border-box;
+    margin: var(--dqFormElementSpacing) 0;
+    border-radius: var(--dqFormElementBorderRadius);
+    position: relative;
+    margin: var(--dqFormElementPadding);
+}
+
+.dq--formitem--input input{
+    background-color: transparent;
+    border:none;
+    outline: none;
+    color:var(--dqFormElementFgColor);
+    height:2.25rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding:0;
+    margin: 0;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+.dq--formitem--input label{
+    position: absolute;
+    left:var(--dqFormElementPadding);
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    top:1rem;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    cursor: text;
+    opacity: .5;
+}
+
+.dq--formitem--input input.dq--hasvalue + label,
+.dq--formitem--input input:focus + label{
+    top:.5rem;
+    font-size: .75rem;
+    line-height: .75rem;
+    font-weight: 400;
+    color:var(--dqFormLabelTextColor);
+    opacity: 1;
+}
+
+.dq--formitem--select,
+.dq--formitem--textarea{
+    display: flex;
+    flex-direction: column;
+}
+
+.dq--formitem--select label,
+.dq--formitem--textarea label{
+    font-size: .75rem;
+}
+
+.dq--formitem--select select,
+.dq--formitem--textarea textarea{
+    width:100%;    
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    color:var(--dqFormElementFgColor);
+    padding: 0;
+    margin: 0;
+    margin-top: .25rem;
+    height:1.25rem;
+}
+
+.dq--formitem--select select option{
+    color:var(--dqFormElementBgColor);
+}
+
+.dq--formitem--textarea textarea{
+    line-height: 1.25rem;
+    min-height: 3.75rem;
+    max-height: 6.25rem;
+    height: auto;
+    resize: none;
+}
+
+/*Button*/
+
+button.dq--formitem{
+  border: 1px solid var(--dqFormElementBorderColor);
+    background-color:var(--dqButtonColor);
+    box-shadow: 0 0 1px 0px var(--dqFormElementBorderColor) inset,
+      0 0 1px 0px var(--dqFormElementBorderColor);
+    box-sizing: border-box;
+    margin: var(--dqFormElementSpacing) 0;
+    border-radius: var(--dqFormElementBorderRadius);
+    position: relative;
+    margin: var(--dqFormElementPadding);
+    display: block;
+    width:calc(100% - (var(--dqFormElementPadding) * 2));
+    height: 2.8rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}

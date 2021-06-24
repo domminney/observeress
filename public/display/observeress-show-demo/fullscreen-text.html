@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown - OBServerEss Demo</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="observeress-show-demo.css">
+    <script src="/scripts/daveQuerynooptchaining.js"></script>
+    <script src="/scripts/observeress-frontend.js" defer></script>
+</head>
+
+<body>
+    <audio autoplay>
+        <source src="/media/audio/bang.wav">
+    </audio>
+    <div class="screen headline-fullscreen">
+
+        <text class='headline-container'></text>
+        <text id="headline-fullscreen" class="obess-text animation-perletter hidden"></text>
+
+        
+    </div>
+
+    <script>
+
+        setInterval(function () {
+            var to = $(".text-off")
+            if (to.length) {
+                to.first().removeClass("text-off")
+                $(".headline-container")[0].innerHTML+=to.html().replace(" ","&nbsp;").replace("|","<br>")
+            }
+        }, 100)
+
+        $("audio")[0].play()
+
+        setTimeout("$('.headline-fullscreen').css('background-color','#ddf')",3200)
+
+    </script>
+
+</body>
+
+</html>

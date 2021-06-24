@@ -1,0 +1,372 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,800&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+.container {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+
+.header {
+  background-color: #069;
+  height: 6rem;
+}
+.header h1 {
+  padding: 1rem;
+  line-height: 2rem;
+  font-size: 2rem;
+}
+
+.header .menu {
+  height: 2rem;
+}
+
+.header .programme {
+  width: 10rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.header .menu button {
+  height: 2rem;
+  background-color: #023;
+  color: white;
+  font-weight: 400;
+  border: 0;
+  outline: 0;
+  margin-left: 1rem;
+  padding: 0 2rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.panelcontainer {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.timeline {
+  height: 2rem;
+  background-color: #023;
+  padding: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header .menu button.button-selected {
+  background-color: hsl(161, 100%, 9%);
+}
+
+.panel {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  display: none;
+}
+
+.panel h1 {
+  font-size: 1.5rem;
+}
+
+.buttongrid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, auto));
+}
+
+.buttongrid button {
+  background-color: #222;
+  color: white;
+  border: 0;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.panel-menu {
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.panel-menu button {
+  background-color: #046;
+  color: white;
+  border: 0;
+  padding: 0.5rem 2rem;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+.buttonpanel {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #aaa;
+  margin-top: 0.625rem;
+  min-width: 16rem;
+  max-width: 64rem;
+  height: auto;
+  position: relative;
+  user-select: none;
+}
+
+.buttonpanel h2 {
+  position: absolute;
+  margin-top: -1rem;
+  margin-left: 1rem;
+  line-height: 1rem;
+  background-color: #000;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.buttonpanel button {
+  font-weight: 400;
+}
+
+.buttonpanels .buttonpanel {
+  float: left;
+  margin: 0.5rem;
+}
+
+.eventprogress {
+  position: absolute;
+  width: 100%;
+  height: 2rem;
+  background-color: #aef;
+  transition: all linear 40ms;
+  bottom: 0;
+  left: 0;
+  line-height: 2rem;
+  white-space: nowrap;
+  color: #000;
+  text-align: left;
+  text-indent: 1rem;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.panel-fullscreen {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.panel-fullscreen h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.close {
+  border-radius: 50%;
+  color: white;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 2rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.close::after {
+  content: "X";
+}
+
+.spreadsheet {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spreadsheet input,
+.spreadsheet select,
+.spreadsheet label {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+.spreadsheet label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  white-space: nowrap;
+  background-color: #eee;
+  color: #000;
+  font-weight: 600;
+}
+
+.spreadsheet-row {
+  display: flex;
+}
+
+.spreadsheet-row-params {
+  margin-bottom: 0.5rem;
+}
+
+input.eventtime {
+  width: 5rem;
+  text-align: center;
+  font-weight: 600;
+  color: #069;
+}
+
+input.eventfunction {
+  color: #023;
+  font-weight: 600;
+}
+
+.panel-fullscreen .menu {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.panel-fullscreen .menu button,
+.panel-fullscreen .menu select {
+  background-color: #023;
+  color: white;
+  height: 2.4rem;
+  border: 1px solid #aaa;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.panel-fullscreen .menu button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.panel-fullscreen .menu select {
+  border-radius: 0.5rem 0 0 0.5rem;
+  background-color: #111;
+  color: white;
+}
+
+.panel-fullscreen .menu select + button {
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-left: none;
+}
+
+.fixedwidth {
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+.sizeicon {
+  position: absolute;
+  /* bottom: -0.75rem;
+    right: -0.75rem; */
+  bottom: -0.25rem;
+  right: -0.25rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #046;
+  cursor: nw-resize;
+}
+
+label.delete {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.marginbot {
+  margin-bottom: 1rem;
+}
+
+.sectionheader {
+  margin: 0 0 1rem 0;
+}
+
+.scenebuttons {
+  display: flex;
+  gap: 1px;
+  flex-wrap: wrap;
+}
+
+.scenebuttons button {
+  border: 0;
+  outline: 0;
+  background-color: #046;
+  color: white;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
+button.redbutton {
+  background-color: #800;
+  color: white;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.pltextcontainer {
+  display: flex;
+  padding: 1rem;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  line-height: 2rem;
+  align-items: top;
+}
+
+.pltext{
+  width:100%;
+}
+
+.pltextcontainer p {
+  margin: 0 1rem;
+  flex-grow: 2;
+  flex-shrink: 2;
+  text-align: left;
+}
+
+.pltextcontainer .next{
+  color:red;
+  font-size: 1.3rem;
+  line-height: 1.75rem;
+}
+
+.pltextcontainer .on{
+  margin-bottom: 2rem;
+}
+
+.pltextcontainer button{
+  height:4rem;
+  width:4rem;
+}

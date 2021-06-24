@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player - OBServerEss Demo</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="observeress-show-demo.css">
+    <script src="/scripts/daveQuerynooptchaining.js"></script>
+    <script src="/scripts/observeress-frontend.js" defer></script>
+</head>
+
+<body>
+    <div class="screen flex-centre">
+
+
+        <div class="mediaplayer" data-media-id="0">
+
+            <div class="videoplayer">
+                <video></video>
+            </div>
+
+            <div class="audioplayer">
+                <video autoplay muted loop>
+                    <source src="/media/video/audio-bg.mp4" type="video/mp4">
+                </video>
+                <div class="audioplayertext">
+                    <h1><text id="audio-headline" class="obess-text animation-none"></text></h1>
+                    <h2><text id="audio-subline" class="obess-text animation-none"></text></h2>
+                    <h3><text id="audio-info" class="obess-text animation-none"></text></h3>
+                </div>
+                <div class="audioplayervisualiser">
+                    <p class="audiotime"></p>
+                    <audioLine><position></position></audioLine>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="smallzoomsurround">
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

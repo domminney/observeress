@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBServerEss Control Panel</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/daveQuery.css">
+    <link rel="stylesheet" href="cp.css">
+    <script src="../scripts/daveQuery.js"></script>
+</head>
+
+<body>
+
+    <div class="pltextcontainer">
+
+        <button onclick="back();">&lt;</button>
+        <div class="pltext"></div>
+        <button onclick="next();">&gt;</button>
+
+    </div>
+
+    <script>
+
+        loadPlaylistText()
+
+        async function loadPlaylistText() {
+
+            var data = await $.get("/data/playlist.txt")
+
+            data = data.split("\n")
+
+            var c=0
+            data.forEach(element => {
+                c++
+                var te = $("<p />").text(c.toString()+': '+element).appendTo(".pltext").addClass("hidden")
+            })
+
+            $("p").first().removeClass("hidden").addClass("on").next().addClass("next").removeClass("hidden")
+
+        }
+
+        function next(){
+            var sel=$(".on")
+            $("p").addClass("hidden").removeClass("next")
+            sel.removeClass("on").next().addClass("on").removeClass("hidden").next().addClass("next").removeClass("hidden")
+        }
+        function back(){
+            var sel=$(".on")
+            $("p").addClass("hidden").removeClass("next")
+            sel.removeClass("on").prev().addClass("on").removeClass("hidden").next().addClass("next").removeClass("hidden")
+        }
+        
+
+    </script>
+
+</body>
+
+</html>

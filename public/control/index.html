@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBServerEss Control Panel</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/daveQuery.css">    
+    <link rel="stylesheet" href="cp.css">
+    <script src="../scripts/daveQuery.js"></script>
+    <script src="cp.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>OBServerEss Control Panel</h1>
+            <div class="programme">
+                <select class="dq-select programme-name" data-label="Programme"></select>
+            </div>
+            <div class="menu">
+                <button onclick="selectPanel('livepanel',this)">Live Panel</button>
+                <button onclick="selectPanel('sequences',this)">Sequences</button>
+            </div>
+        </div>
+        <div class="panelcontainer">
+            <div class="panel panel-livepanel"> 
+                <div class="panel-menu">
+                    <button onclick="addPanel()">Add Panel</button>
+                </div>               
+                <div class="buttonpanels">
+
+                </div>
+            </div>
+            <div class="panel panel-sequences">
+                <div class="panel-menu">
+                    <button onclick="addSequence()">Add Sequence</button>
+                </div>
+                <div class="buttongrid marginbot">
+
+                </div>
+                <h2 class='sectionheader'>Auto Create Sequence From Scene</h2>
+                <div class="scenebuttons">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+
+
+            <div class="eventprogress">
+
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown - OBServerEss Demo</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="observeress-show-demo.css">
+    <script src="/scripts/daveQuerynooptchaining.js"></script>
+    <script src="/scripts/observeress-frontend.js" defer></script>
+</head>
+
+<body>
+    <div class="screen">
+
+        <div class="zoomsurround">
+
+        </div>
+
+        <audio autoplay></audio>
+
+    </div>
+
+    <script>
+
+        var aud = ''
+        var audio = $("audio")
+        var newaudioto
+        setInterval(async function () {
+
+            var data = await $.get("/data/bgaudio.json")
+
+            if (data.url !== aud) {
+
+                aud = data.url
+                clearTimeout(fadeto)
+
+                var to = 0
+
+                if (!audio[0].paused) {
+                    fadeOut()
+                    to = 2500
+                }
+
+
+
+                clearTimeout(newaudioto)
+                newaudioto = setTimeout(function (data) {
+
+                    clearTimeout(fadeto)
+
+                    audio.remove()
+                    audio=$("<audio />")
+                    audio.appendTo("body")                    
+                    audio.append($("<source />").attr("src", aud))
+                    audio[0].src = aud
+                    audio[0].currentTime = 0
+                    audio[0].volume = parseFloat(data.volume) / 100
+                    if (aud) audio[0].play()
+
+                }, to, data)
+
+            }
+
+        }, 100)
+
+        var fadeto
+
+        function fadeOut() {
+
+            audio[0].volume = audio[0].volume * 0.98
+
+            if (audio[0].volume < 0.01) return
+
+            fadeto = setTimeout(fadeOut, 3)
+
+        }
+
+    </script>
+
+</body>
+
+</html>
