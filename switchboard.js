@@ -1,6 +1,5 @@
 var express = require('express')
 var formidable = require('express-formidable')
-var mm = require('music-metadata')
 var fs = require('fs')
 var cors = require('cors')
 const OBSWebSocket = require('obs-websocket-js');
